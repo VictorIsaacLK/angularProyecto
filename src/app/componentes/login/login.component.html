@@ -1,0 +1,60 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="../../../assets/Vydalogooo.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+      <div class="mt-7">
+        <input
+          type="text"
+          id="login"
+          class="fadeIn second"
+          placeholder="Correo"
+          formControlName="correo"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          [hidden]="correo.valid || correo.pristine"
+        >
+          <span *ngIf="correo.errors?.['required']">Correo Obligatorio.</span>
+          <span *ngIf="correo.errors?.['email']">Correo Invalido.</span>
+        </div>
+      </div>
+      <div class="mt-7">
+        <input
+          type="password"
+          id="password"
+          class="fadeIn third"
+          placeholder="Contraseña"
+          formControlName="password"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          [hidden]="password.valid || password.pristine"
+        >
+          <span *ngIf="password.errors?.['required']"
+            >Contraseña Obligatoria.</span
+          >
+          <span *ngIf="password.errors?.['minlength']"
+            >Contraseña debe tener minimo 5 caracteres.</span
+          >
+        </div>
+      </div>
+
+      <div class="mt-7 flex flex-col items-center">
+        
+        <input type="submit" class="fadeIn fourth" value="Iniciar Sesión" [disabled]="form.invalid" />
+      </div>
+      <a class="underlineHover" routerLink="/registro"
+          >¿No tienes cuenta? Registrate</a
+        >
+    </form>
+  </div>
+</div>
