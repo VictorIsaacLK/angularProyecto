@@ -1,19 +1,131 @@
 <div class="wrapper fadeInDown">
-    <div id="formContent">
-      <!-- Tabs Titles -->
-  
-      <!-- Icon -->
-      <div class="fadeIn first">
-        <img src="../../../assets/Vydalogooo.png" id="icon" alt="User Icon" />
-      </div>
-  
-      <!-- Login Form -->
-      <form >
-        <input type="text" id="nombre" class="fadeIn second"  placeholder="Nombre" formControlName="nombre">
-        <input type="text" id="nombre" class="fadeIn second"  placeholder="Telefono" formControlName="telefono">
-        <input type="text" id="login" class="fadeIn second"  placeholder="Correo" formControlName="correo">
-        <input type="password" id="password" class="fadeIn third"  placeholder="Contraseña" formControlName="contraseña">
-        <input type="submit" class="fadeIn fourth" value="Registrar">
-      </form>
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="../../../assets/Vydalogooo.png" id="icon" alt="User Icon" />
     </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="formu" (ngSubmit)="registrarUsuario()" class="mt-10">
+      <div class="mt-7">
+        <input
+          type="text"
+          id="nombre"
+          class="fadeIn second"
+          placeholder="Nombre"
+          formControlName="nombre_completo"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          [hidden]="nombre_completo.valid || nombre_completo.pristine"
+        >
+          <span *ngIf="nombre_completo.errors?.['required']"
+            >Nombre Obligatorio.</span
+          >
+          <span *ngIf="nombre_completo.errors?.['minlength']"
+            >Nombre debe tener minimo 3 caracteres.</span
+          >
+          <span *ngIf="nombre_completo.errors?.['maxlength']"
+            >Nombre debe tener maximo 16 caracteres.</span
+          >
+        </div>
+      </div>
+      <div class="mt-7">
+        <input
+          type="text"
+          id="login"
+          class="fadeIn second"
+          placeholder="Correo"
+          formControlName="correo"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          [hidden]="correo.valid || correo.pristine"
+        >
+          <span *ngIf="correo.errors?.['required']">Correo Obligatorio.</span>
+          <span *ngIf="correo.errors?.['email']">Correo Invalido.</span>
+        </div>
+      </div>
+      <div class="mt-7">
+        <input
+          type="password"
+          id="password"
+          class="fadeIn third"
+          placeholder="Contraseña"
+          formControlName="password"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          [hidden]="password.valid || password.pristine"
+        >
+          <span *ngIf="password.errors?.['required']"
+            >Contraseña Obligatoria.</span
+          >
+          <span *ngIf="password.errors?.['minlength']"
+            >Contraseña debe tener minimo 5 caracteres.</span
+          >
+          <span *ngIf="password.errors?.['maxlength']"
+            >Contraseña debe tener maximo 16 caracteres.</span
+          >
+        </div>
+      </div>
+      <div class="mt-7">
+        <input
+          type="password"
+          id="password"
+          class="fadeIn third"
+          placeholder="Confirmar contraseña"
+          formControlName="confirmPassword"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          [hidden]="confirmPassword.valid || confirmPassword.pristine"
+        >
+          
+          <span
+            *ngIf="confirmPassword.errors?.['passwordMismatch']"
+            >Las contraseñas no coinciden.</span
+          >
+          <span *ngIf="confirmPassword.errors?.['required'] || confirmPassword.value === ''">
+            Confirmación obligatoria.
+          </span>
+        </div>
+      </div>
+
+      <div class="mt-7">
+        <input
+          type="text"
+          id="nombre"
+          class="fadeIn second"
+          placeholder="Telefono"
+          formControlName="telefono"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          [hidden]="telefono.valid || telefono.pristine"
+        >
+          <span *ngIf="telefono.errors?.['required']"
+            >Telefono Obligatorio.</span
+          >
+          <span *ngIf="telefono.errors?.['minlength']"
+            >Tiene que contener 10 numeros</span
+          >
+          <span *ngIf="telefono.errors?.['maxlength']"
+            >Tiene que contener 10 numeros</span
+          >
+        </div>
+      </div>
+      <div class="mt-7 flex flex-col items-center">
+        
+        <input type="submit" class="fadeIn fourth" value="Registrarme"  />
+      </div>
+    </form>
   </div>
+</div>

@@ -1,0 +1,16 @@
+.card:hover
+{
+    transform: translateY(-3%);
+    transform: scale(1.06);
+}
+.col a{
+    text-decoration: none;
+    color: black;
+    
+}
+div.contenedor1 {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}

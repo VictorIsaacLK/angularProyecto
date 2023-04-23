@@ -10,22 +10,29 @@
       <div class="collapse navbar-collapse" [ngClass]="{'show': navbarOpen}" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Inicio <span class="sr-only"></span></a>
+            <a class="nav-link" routerLink="/inicio">Inicio <span class="sr-only"></span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/parques">Parques</a>
+          <li class="nav-item" *ngIf="!isSessionActive()" >
+            <a class="nav-link"  routerLink="/login">Iniciar Sesión</a>
           </li>
+          <li class="nav-item" *ngIf="!isSessionActive()" >
+            <a class="nav-link"  routerLink="/registro">Registrarme</a>
+          </li>
+          <li class="nav-item" *ngIf="isSessionActive()" >
+            <a class="nav-link"  routerLink="/see-parques">Parques</a>
+          </li>
+
           <li class="nav-item">
-            <a class="nav-link" routerLink="/visitantes">Visitantes</a>
+            <a class="nav-link" *ngIf="isSessionActive()"  routerLink="/visitantes">Visitantes</a>
           </li>
           <li class="nav-item dropdown" ngbDropdown>
-            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" ngbDropdownToggle>
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" *ngIf="isSessionActive()"  role="button" ngbDropdownToggle>
               Cuenta
             </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
-              <a class="dropdown-item" href="#">Opción 1</a>
-              <a class="dropdown-item" href="#">Opción 2</a>
-              <a class="dropdown-item" href="#">Opción 3</a>
+            <div class="dropdown-menu dropdown-menu-end"  aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
+              <a class="dropdown-item" >Mi Perfil</a>
+              <a class="dropdown-item" (click)="logOut()">Cerrar Sesión</a>
+           
             </div>
           </li>
         </ul>

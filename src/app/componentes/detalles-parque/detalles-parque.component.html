@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="fondo" style="width: 100%;height: 723px; background-image:url('../../../assets/27.PNG');">
+      <h2>Mi Parque</h2>
+      <div style="height: 100px;"></div>
+      <div class="container" style="width: 50%; font-size: 20px;font-weight: bold;">
+        <ng-container *ngFor="let parque of parques">
+        <div class="form-group">
+          <div class="form-group row">
+            <div class="col">
+              <h2>Nombre:</h2>
+              <p for="">{{parque.nombre}}</p>
+            </div>
+            <div class="col">
+              <h2>Telefono:</h2>
+              <p>{{parque.telefono}}</p>
+            </div>
+          </div> 
+          <div class="form-group row">
+            <div class="col">
+              <h2>Medidas:</h2>
+              <p for="">{{parque.medidas}}</p>
+            </div>
+            <div class="col">
+              <h2>Status:</h2>
+              <p>{{parque.status}}</p>
+            </div>
+          </div> 
+          <div class="form-group row">
+            <div class="col">
+              <h2>Direccion:</h2>
+              <p>{{parque.ubicacion}}</p>
+            </div>
+            <div>
+            
+        
+                
+
+              <button type="button" class="btn btn-secondary" style="margin-right: 15px; margin-left: 70PX;" routerLink="/sensores">Sensores</button>
+              <button type="button" class="btn btn-success" style="margin-right: 15px;" routerLink="/visitantes">Visitantes</button>
+              <button type="button" class="btn btn-warning" style="margin-right: 15px;" (click)="editarParque(parque.id)">Actualizar</button>
+              <button type="button" class="btn btn-danger" style="margin-right: 15px;" (click)="eliminarParque(parque.id)">Eliminar</button>
+            </div>
+          </div>   
+               
+        </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  
