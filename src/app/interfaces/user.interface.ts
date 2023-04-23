@@ -4,6 +4,6 @@ export interface User {
     correo: string;
     contrasena: string;
     telefono: number;
-    status: boolean ;
+    status: number;
     no_verificación: string;
 }

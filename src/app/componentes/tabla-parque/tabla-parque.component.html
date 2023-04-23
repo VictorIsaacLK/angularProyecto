@@ -1,0 +1,31 @@
+
+  <div class="container" style="width: 70%;">
+      <h2>Mis Parques</h2>
+      <br>
+      <button type="button" class="btn btn-success" routerLink="/agregarparque">Agregar parque</button>
+      <br><br>
+        <table class="table table-dark table-striped">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col" style="width: 350px;">Nombre</th>
+                <th scope="col">Mas opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let parque of parques">
+              <tr>
+                <th scope="row">{{parque.id}}</th>
+                <td>{{parque.nombre}}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-light" style="margin-right: 15px;" (click)="getpark(parque.id)">Mas información</button>
+                  <button type="button" class="btn btn-outline-secondary" style="margin-right: 15px;" routerLink="/sensores">Sensores</button>
+                  <button type="button" class="btn btn-outline-success" style="margin-right: 15px;" routerLink="/see-visitantes">Visitantes</button>
+                  <button type="button" class="btn btn-outline-warning" style="margin-right: 15px;" (click)="editarParque(parque.id)">Actualizar</button>
+                  <button type="button" class="btn btn-outline-danger" style="margin-right: 15px;" (click)="eliminarParque(parque.id)">Eliminar</button>
+                </td>
+              </tr>
+              </ng-container>
+            </tbody>
+          </table>
+    </div>

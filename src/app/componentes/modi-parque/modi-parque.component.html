@@ -1,0 +1,38 @@
+
+<div class="fondo" style="width: 100%;height: 723px; background-image:url('../../../assets/27.PNG');">
+    <div style="height: 170px;"></div>
+    <div class="container" style="width: 50%; font-size: 18px;font-weight: bold;">
+          <h2>Actualizar parque</h2>
+          <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+            <div class="form-group">
+            <label for="exampleFormControlInput1">Nombre</label>
+              <input type="text" class="form-control" placeholder="Nombre del parque" formControlName="nombre">
+            </div>
+        <div class="form-group row">
+        
+                <div class="col">
+                    <label for="exampleFormControlInput1">Medidas</label>
+                    <input type="text" class="form-control" placeholder="Medidas" formControlName="medidas">
+                </div>
+              
+                <div class="col">
+                    <label for="exampleFormControlInput1">Telefono</label>
+                    <input type="text" class="form-control" placeholder="Telefono" formControlName="telefono">
+                </div>
+            </div> 
+            <div class="form-group row">
+            
+              <div class="col">
+                  <label for="exampleFormControlInput1">Direccion</label>
+                  <input type="text" class="form-control" placeholder="Direccion" formControlName="ubicacion">
+              </div>
+          </div>        
+        
+        <br>
+        <button type="submit" style="margin-left: 115px;">Actualizar</button>
+        
+        <button type="button" routerLink="/see-parques">Salir</button>
+        
+        </form>
+    </div>
+  </div>

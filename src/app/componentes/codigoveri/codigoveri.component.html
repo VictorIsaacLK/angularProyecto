@@ -1,0 +1,20 @@
+<div style="display:flex; justify-content:center; align-items:center; height:100vh;">
+  <div id="formContent">
+    <div class="fadeIn first">
+      <h6>Ingrese el código de verificación</h6>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mt-7" >
+        <input type="text" id="codi" class="fadeIn second" placeholder="Código" formControlName="codigo">
+        <div class="alert alert-danger" role="alert" [hidden]="codigo.valid || codigo.pristine">
+          <span *ngIf="codigo.errors?.['required']">Código Obligatorio.</span>
+          <span *ngIf="codigo.errors?.['minlength']">Tiene que contener 4 numeros</span>
+          <span *ngIf="codigo.errors?.['maxlength']">Tiene que contener 4 numeros</span>
+          <span *ngIf="codigo.errors?.['pattern']">Solo se permiten numeros</span>
+      </div>
+      </div>
+   
+      <input type="submit" class="fadeIn fourth" value="Enviar"  [disabled]="form.invalid">
+    </form>
+  </div>
+</div>
