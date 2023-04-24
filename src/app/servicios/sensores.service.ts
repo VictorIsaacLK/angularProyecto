@@ -21,16 +21,10 @@ export class SensoresService {
     );
   }
 
-  updateRueda(): Observable<Rueda[]>{
-    return this.http.get<Rueda[]>(this.globalVariables.apiUrl + '/sensores').pipe(
-      catchError((error) => {
-        this.message = 'Ocurrio un error';
-        return throwError(error);
-      })
-    );
+  
   }
   
  
-}
+
   
 
