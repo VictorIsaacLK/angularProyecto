@@ -7,5 +7,5 @@ export class GlobalVariablesService {
 
   constructor() { }
 
-  apiUrl = 'https://treevyda.lat/adonis';
+  apiUrl = 'https://adonis.treevyda.lat';
 }
