@@ -37,6 +37,7 @@ export class CodigoveriComponent {
               position: 'center',
               icon: 'success',
               title: 'Código verificado',
+              text: 'Cuenta verificada, inicie sesión',
               showConfirmButton: false,
               timer: 1500
             });

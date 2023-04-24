@@ -19,7 +19,6 @@ export class DetallesParqueComponent {
         this.id = Number(params.get('id'));
         this.getParque();
     });
-
 }
 getParque(){
   this.parqueService.getParque(this.id).subscribe((parque) => this.parques = [parque]);
@@ -28,7 +27,7 @@ getParque(){
 editarParque(id: number)
 {
  this.router.navigate(['edit-parque',id])
-}
+} 
 
 eliminarParque(id: number):void{
   if(confirm("¿Estas seguro de eliminar el parque?")){

@@ -12,6 +12,7 @@ import { SensoresComponent } from './componentes/sensores/sensores.component';
 import { TablaVisitanteComponent } from './componentes/tabla-visitante/tabla-visitante.component';
 import { ModiParqueComponent } from './componentes/modi-parque/modi-parque.component';
 import { AuthGuard } from './guards/auth.guard';
+import { InfouserComponent } from './componentes/infouser/infouser.component';
 
 const routes: Routes = [
   { path: 'agregarparque', component: AgregarParqueComponent, canActivate: [AuthGuard] },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'sensores', component : SensoresComponent, canActivate:[AuthGuard]},
   { path: 'see-visitantes', component : TablaVisitanteComponent, canActivate: [AuthGuard]},
   { path: 'edit-parque/:id', component : ModiParqueComponent, canActivate: [AuthGuard]},
+  { path : 'info-user', component : InfouserComponent, canActivate: [AuthGuard]},
   
 
 ];
