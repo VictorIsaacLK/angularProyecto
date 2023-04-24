@@ -5,11 +5,13 @@
     </div>
     <div class="sensor-card" *ngFor="let sensor of sensores">
       <div class="sensor-header">
-        {{ sensor.sensor.Tipo }}
+        <h3 class="sensor-name">{{ sensor.sensor.Tipo }}</h3>
+       <h5><strong> Ubicacion: </strong> {{ sensor.sensor.Ubicacion }}</h5>
       </div>
       <div class="sensor-body">
         <h5 class="sensor-value">{{ sensor.value }}</h5>
       </div>
+    
     </div>
   </div>
   

@@ -19,7 +19,8 @@ export class SensoresComponent {
   constructor(
     private sensoreService: SensoresService,
     private cd: ChangeDetectorRef,
-    private http: HttpClient
+    private http: HttpClient,
+    private globalService: GlobalVariablesService,
   ) {}
 
   ngOnInit() {
@@ -36,7 +37,7 @@ export class SensoresComponent {
   }
 
   cambiarStatus() {
-    const url = 'http://127.0.0.1:3333/led/update/1';
+    const url = this.globalService.apiUrl + '/led/update/1';
     this.http.put(url, {}).subscribe(
       (response) => console.log('Status cambiado'),
       (error) => console.log('Error al cambiar status', error)

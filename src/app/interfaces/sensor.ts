@@ -7,7 +7,7 @@ export interface Sensor {
     fecha: Date
     sensor: {
         Tipo : string,
-      
+        Ubicacion: string,
     }
    
   
