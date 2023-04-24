@@ -18,6 +18,15 @@
           placeholder="Nombre del parque"
           formControlName="nombre"
         />
+        <div
+        class="alert alert-danger"
+        role="alert"
+        [hidden]="nombre.valid || nombre.pristine"
+      >
+      <span *ngIf="nombre.errors?.['required']">El nombre es requerido</span>
+      <span *ngIf="nombre.errors?.['minlength']">El nombre debe tener minimo 3 caracteres</span>
+      <span *ngIf="nombre.errors?.['maxlength']">El nombre debe tener maximo 30 caracteres</span>
+      </div>
       </div>
       <div class="form-group row">
         <div class="col">
@@ -29,6 +38,15 @@
             formControlName="medidas"
           />
         </div>
+        <div
+        class="alert alert-danger"
+        role="alert"
+        [hidden]="medidas.valid || medidas.pristine"
+      >
+      <span *ngIf="medidas.errors?.['required']">Las medidas son requeridas</span>
+      <span *ngIf="medidas.errors?.['minlength']">Las medidas deben tener minimo 3 caracteres</span>
+      <span *ngIf="medidas.errors?.['maxlength']">Las medidas deben tener maximo 30 caracteres</span>
+      </div>
 
         <div class="col">
           <label for="exampleFormControlInput1">Telefono</label>
@@ -39,6 +57,17 @@
             formControlName="telefono"
           />
         </div>
+        <div
+        class="alert alert-danger"
+        role="alert"
+        [hidden]="telefono.valid || telefono.pristine"
+      >
+      <span *ngIf="telefono.errors?.['required']">El telefono es requerido</span>
+      <span *ngIf="telefono.errors?.['minlength']">El telefono debe tener minimo 10 caracteres</span>
+      <span *ngIf="telefono.errors?.['maxlength']">El telefono debe tener maximo 10 caracteres</span>
+      <br>
+      <span *ngIf="telefono.errors?.['pattern']">El telefono debe ser numerico</span>
+      </div>
       </div>
       <div class="form-group row">
         <div class="col">
@@ -50,12 +79,28 @@
             formControlName="ubicacion"
           />
         </div>
+        <div
+        class="alert alert-danger"
+        role="alert"
+        [hidden]="ubicacion.valid || ubicacion.pristine"
+      >
+      <span *ngIf="ubicacion.errors?.['required']">La ubicacion es requerida</span>
+      <span *ngIf="ubicacion.errors?.['minlength']">La ubicacion debe tener minimo 15 caracteres</span>
+      <span *ngIf="ubicacion.errors?.['maxlength']">La ubicacion debe tener maximo 30 caracteres</span>
+      </div>
+      
+</div>
+      <br />
+      <div class="form-group row">
+        <div class="col">
+          <button type="submit" style="margin-left: 0px;" [disabled]="formu.invalid">Guardar</button>
+        </div>
+        <div class="col">
+          <button type="button">Salir</button>
+        </div>
       </div>
 
-      <br />
-      <button type="submit" style="margin-left: 115px;">Guardar</button>
-
-      <button type="button">Salir</button>
+      
     </form>
   </div>
 </div>

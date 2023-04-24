@@ -25,10 +25,10 @@ export class ModiParqueComponent {
     private route : ActivatedRoute,
     private router : Router,
     ) {  this.form = this.fb.group({
-      nombre: ['', [Validators.required]],
-      medidas: ['', [Validators.required]],
-      ubicacion: ['', [Validators.required]],
-      telefono: ['', [Validators.required]],
+      nombre: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+      medidas: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+      ubicacion: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+      telefono: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]*$')]],
     });
   
    }

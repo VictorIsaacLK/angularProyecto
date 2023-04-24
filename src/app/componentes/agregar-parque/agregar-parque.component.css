@@ -35,7 +35,7 @@ input[type="reset"] {
   background-color: #2fc958;
   border: none;
   color: white;
-  padding: 15px 80px;
+  padding: 15px 40px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -57,7 +57,7 @@ button[type="button"] {
   background-color: #e61414;
   border: none;
   color: white;
-  padding: 15px 80px;
+  padding: 15px 40px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -89,3 +89,4 @@ input[type="reset"]:hover {
   height: 550px;
   width: 80%;
 }
+
