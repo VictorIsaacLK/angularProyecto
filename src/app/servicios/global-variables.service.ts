@@ -7,5 +7,5 @@ export class GlobalVariablesService {
 
   constructor() { }
 
-  apiUrl = 'treevyda.lat:3333';
+  apiUrl = 'https://treevyda.lat:3333';
 }
