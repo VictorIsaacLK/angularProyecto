@@ -7,5 +7,6 @@ export class GlobalVariablesService {
 
   constructor() { }
 
-  apiUrl = 'http://44.202.93.254:3333';
+
+  apiUrl = 'http://3.93.149.143:3333';
 }

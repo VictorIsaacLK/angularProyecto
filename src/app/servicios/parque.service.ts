@@ -13,7 +13,7 @@ export class ParqueService {
   constructor(private http: HttpClient, private globalVariables : GlobalVariablesService) {}
 
   getParques(): Observable<Parque[]> {
-    return this.http.get<Parque[]>(this.globalVariables.apiUrl + '/parques').pipe(
+    return this.http.get<Parque[]>(this.globalVariables.apiUrl + '/parque/info').pipe(
       catchError((error) => {
         this.message = 'Ocurrio un error';
         return throwError(error);

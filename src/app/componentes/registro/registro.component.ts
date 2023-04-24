@@ -89,7 +89,7 @@ export class RegistroComponent {
           buttonsStyling: false,
         });
         setTimeout(() => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/validacodigo']);
         }, 3000);
       },
       (error) => {
@@ -105,4 +105,5 @@ export class RegistroComponent {
 
     );
     }
+    
 }

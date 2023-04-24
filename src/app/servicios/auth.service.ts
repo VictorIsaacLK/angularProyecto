@@ -83,4 +83,12 @@ export class AuthService {
     }
     return this.token;
   }
+  Infouser():Observable<User>  {
+    return this.http.get<User>(this.globalVariable.apiUrl + '/users/info')
+    .pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
+      
+  }
 }

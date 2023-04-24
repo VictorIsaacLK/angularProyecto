@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Sensor } from 'src/app/interfaces/sensor';
+import { GlobalVariablesService } from 'src/app/servicios/global-variables.service';
 import { SensoresService } from 'src/app/servicios/sensores.service';
 
 @Component({
@@ -11,20 +13,36 @@ import { SensoresService } from 'src/app/servicios/sensores.service';
 export class SensoresComponent {
   id: number = 0;
   sensores: Sensor[] = [];
+  tipoSensor: string = '';
+  private intervaloSensores: any;
 
   constructor(
     private sensoreService: SensoresService,
-    private route: ActivatedRoute,
-    private router: Router
+    private cd: ChangeDetectorRef,
+    private http: HttpClient
   ) {}
 
   ngOnInit() {
     this.getSensores();
+    this.intervaloSensores = setInterval(() => {
+      this.getSensores();
+    }, 3000);
+  }
+  getSensores() {
+    this.sensoreService.getSensores().subscribe((sensores) => {
+      this.sensores = sensores;
+      this.cd.markForCheck();
+    });
   }
 
-  getSensores() {
-    this.sensoreService
-      .getSensores()
-      .subscribe((sensores) => (this.sensores = sensores));
+  cambiarStatus() {
+    const url = 'http://127.0.0.1:3333/led/update/1';
+    this.http.put(url, {}).subscribe(
+      (response) => console.log('Status cambiado'),
+      (error) => console.log('Error al cambiar status', error)
+    );
+  }
+  ngOnDestroy() {
+    clearInterval(this.intervaloSensores);
   }
 }

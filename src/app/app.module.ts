@@ -15,6 +15,7 @@ import { DetallesParqueComponent } from './componentes/detalles-parque/detalles-
 import { SensoresComponent } from './componentes/sensores/sensores.component';
 import { TablaVisitanteComponent } from './componentes/tabla-visitante/tabla-visitante.component';
 import { ModiParqueComponent } from './componentes/modi-parque/modi-parque.component';
+import { CorsInterceptor } from './interceptores/cors.interceptor';
 
 
 import { LoginComponent } from './componentes/login/login.component';
@@ -25,6 +26,7 @@ import {ToastrModule, ToastrService} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './servicios/auth.service';
 import { TokenInterceptorService } from './interceptores/token.interceptor';
+import { InfouserComponent } from './componentes/infouser/infouser.component';
 
 
 
@@ -44,6 +46,7 @@ import { TokenInterceptorService } from './interceptores/token.interceptor';
     SensoresComponent,
     TablaVisitanteComponent,
     ModiParqueComponent,
+    InfouserComponent,
 
   ],
   imports: [
@@ -58,7 +61,9 @@ import { TokenInterceptorService } from './interceptores/token.interceptor';
     BrowserAnimationsModule,
 
   ],
-  providers: [ToastrService, {provide: AuthService}, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}],
+  providers: [ToastrService, {provide: AuthService}, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}, 
+    { provide: HTTP_INTERCEPTORS, useClass: CorsInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
